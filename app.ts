@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import Container from "typedi";
-import express from "express"
 import bodyParser from "body-parser";
+import express from "express";
 import { Application } from "express";
 import { useExpressServer, useContainer } from "routing-controllers";
 import Health_CheckController from "./controllers/Health_CheckController";
@@ -12,7 +12,7 @@ const app: Application = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-useContainer(Container)
+useContainer(Container);
 useExpressServer(app, {
     routePrefix: "/api",
     controllers: [
@@ -21,20 +21,10 @@ useExpressServer(app, {
     ]
 });
 
-function start(): Promise<void> {
-    return new Promise((resolve, reject) => {
-        try {
-            app.listen(80, () => {
-                resolve();
-            });
-        } catch (error) {
-            reject(error);
-        }
+try {
+    app.listen(80, () => {
+        console.log(`Application running on http://localhost:${80}`);
     });
-}
-
-start().then(() => {
-    console.log(`Application running on http://localhost:${80}.`);
-}).catch(error => {
+} catch (error) {
     console.error("Application run has error:", error.message);
-});
+}

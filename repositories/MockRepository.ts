@@ -1,9 +1,9 @@
-import IMock from "../models/IMock";
 import { Service } from "typedi";
+import IMock from "../models/IMock";
 
 @Service()
 export default class MockRepository {
-    list(): Promise<IMock[]> {
+    public list(): Promise<IMock[]> {
         return new Promise((resolve, reject) => {
             const list: IMock[] = [
                 {
@@ -17,8 +17,8 @@ export default class MockRepository {
                 {
                     id: 3,
                     name: "C"
-                }
-            ]
+                },
+            ];
             resolve(list);
         });
     }

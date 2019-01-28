@@ -19,7 +19,7 @@ export async function toResultPromise(func: () => Promise<object | void>): Promi
     } catch (error) {
         result = {
             status: ResultStatus.ServerError,
-            message: "Error",
+            message: "Error"
         };
     }
     return result;
@@ -35,7 +35,7 @@ export function toResult(func: () => object | void): IResult {
     } catch (error) {
         result = {
             status: ResultStatus.ServerError,
-            message: "Error",
+            message: "Error"
         };
     }
     return result;

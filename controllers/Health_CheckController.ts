@@ -5,11 +5,11 @@ import { IResult, ResultStatus } from "../commons/Result";
 export default class Health_CheckController {
 
     @Get("/v1")
-    v1(
+    public v1(
     ): IResult {
         const result: IResult = {
             status: ResultStatus.Success,
-            message: "OK",
+            message: "OK"
         };
         return result;
     }

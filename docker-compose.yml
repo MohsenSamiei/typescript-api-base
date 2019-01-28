@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: tni:latest
+    container_name: tni
+    ports:
+      - "80:80"

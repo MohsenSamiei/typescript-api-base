@@ -1,0 +1,39 @@
+{
+  "name": "typescript-nodejs-infrastructure",
+  "description": "Typescript Node.JS Express Infrastructure",
+  "license": "ISC",
+  "version": "1.0.0",
+  "author": "Mohsen Samiei <eng.msamiee@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohsenSamiei/Typescript-NodeJS-Infrastructure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MohsenSamiei/Typescript-NodeJS-Infrastructure/issues"
+  },
+  "homepage": "https://github.com/MohsenSamiei/Typescript-NodeJS-Infrastructure#readme",
+  "keywords": [
+    "Typescript",
+    "NodeJS",
+    "Express",
+    "Infrastructure"
+  ],
+  "main": "./build/app.js",
+  "scripts": {
+    "start": "node ./build/app.js",
+    "build": "rm -rf ./build && tsc"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.7.7",
+    "typedi": "^0.8.0",
+    "typescript": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/node": "^10.12.18"
+  }
+}

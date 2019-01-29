@@ -1,5 +1,4 @@
 import "reflect-metadata";
-import dotenv from "dotenv";
 import Container from "typedi";
 import bodyParser from "body-parser";
 import express from "express";
@@ -7,8 +6,6 @@ import { Application } from "express";
 import { useExpressServer, useContainer } from "routing-controllers";
 import HealthCheckController from "./controllers/HealthCheckController";
 import MockListController from "./controllers/MockListController";
-
-dotenv.config();
 
 const app: Application = express();
 
@@ -24,11 +21,4 @@ useExpressServer(app, {
     ]
 });
 
-try {
-    const port = process.env.APP_PORT || 3000;
-    app.listen(port, () => {
-        console.log(`Application running on http://localhost:${port}`);
-    });
-} catch (error) {
-    console.error("Application run has error:", error.message);
-}
+export default app;

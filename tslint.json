@@ -17,7 +17,7 @@
         "ordered-imports": false,
         "object-literal-sort-keys": false,
         "no-console": false,
-        "eofline":false
+        "eofline": false
     },
     "rulesDirectory": []
 }

@@ -1,7 +1,7 @@
 import { Controller, Get } from "routing-controllers";
 import { IResult, ResultStatus } from "../commons/Result";
 
-@Controller("/health_check")
+@Controller("/healthcheck")
 export default class HealthCheckController {
 
     @Get("/v1")

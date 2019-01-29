@@ -2,7 +2,7 @@ import { Controller, Get } from "routing-controllers";
 import { IResult, ResultStatus } from "../commons/Result";
 import MockListService from "../services/MockListService";
 
-@Controller("/mock_list")
+@Controller("/mocklist")
 export default class MockListController {
     constructor(
         private mock_listService: MockListService

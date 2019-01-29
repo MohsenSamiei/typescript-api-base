@@ -3,7 +3,7 @@ import IMock from "../models/IMock";
 import MockRepository from "../repositories/MockRepository";
 
 @Service()
-export default class Mock_ListService {
+export default class MockListService {
     constructor(
        private mockRepository: MockRepository
     ) {

@@ -3,6 +3,13 @@ services:
   app:
     build: .
     image: tni:latest
-    container_name: tni
+    container_name: tni_app
+    environment: 
+      - NODE_ENV=production      
+      - APP_PORT=3000
+    networks: 
+      - backend
     ports:
-      - "80:80"
+      - "3000:3000"
+networks: 
+  backend:

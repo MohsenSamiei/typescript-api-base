@@ -1,9 +1,15 @@
 import request from "supertest";
 import app from "../source/app";
+import { ResultStatus } from "../source/commons/Result";
 
-describe("GET /mocklist/v1", () => {
-    it("should return 200 OK", () => {
-        return request(app).get("/api/mocklist/v1")
-            .expect(200);
+describe("GET /api/mocklist/v1", () => {
+    it("Should return status code 0 Success", async () => {
+        const response = await request(app).get("/api/mocklist/v1");
+        expect(response.status).toEqual(200);
+        expect(response.body.status).toEqual(ResultStatus.Success);
+
+        let modelType: string = typeof response.body.model;
+        modelType = modelType === "object" ? Array.isArray(response.body.model) ? "array" : modelType : modelType;
+        expect(modelType).toBe("array");
     });
 });

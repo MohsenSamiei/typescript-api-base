@@ -1,13 +1,31 @@
 # Typescript Node.JS Express Infrastructure
 
-## Environment values
-Add `.env` file in project root path with this content
+## Preparing the development environment
+```sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 ```
-APP_PORT=3000
+```sh
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+```sh
+nvm install
+npm run dev
 ```
 
-## Script commands
-Build javascript: `npm run build`\
-Start application: `npm start`\
-Run code lint: `npm run lint`\
-Build docker image: `npm run prod`
+## Build Source code and run
+```sh
+npm run lint
+npm run build
+npm start
+```
+
+## Run application tests
+```sh
+npm run test
+```
+
+## Build docker image
+```sh
+npm run prod
+```

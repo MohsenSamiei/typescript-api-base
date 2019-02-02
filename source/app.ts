@@ -1,12 +1,15 @@
 import "reflect-metadata";
+import express from "express";
 import Container from "typedi";
 import bodyParser from "body-parser";
-import express from "express";
-import ErrorHandler from "./commons/ErrorHandler";
+import ErrorHandler from "./commons/errorhandler";
 import { Application } from "express";
+import { events, emitter } from "./events";
+import { appconfig, envconfig } from "./commons/configs";
 import { useExpressServer, useContainer } from "routing-controllers";
-import HealthCheckController from "./controllers/HealthCheckController";
-import MockListController from "./controllers/MockListController";
+
+import MockListController from "./controllers/mocklistcontroller";
+import HealthCheckController from "./controllers/healthcheckcontroller";
 
 const app: Application = express();
 
@@ -23,5 +26,15 @@ useExpressServer(app, {
         MockListController
     ]
 });
+
+if (!envconfig.is_test) {
+    try {
+        app.listen(appconfig.port, () => {
+            emitter.emit(events.on_app_started, envconfig.name, appconfig.port);
+        });
+    } catch (error) {
+        emitter.emit(events.on_app_crashed, error);
+    }
+}
 
 export default app;

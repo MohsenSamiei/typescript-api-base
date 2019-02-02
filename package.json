@@ -18,13 +18,14 @@
     "Express",
     "Infrastructure"
   ],
-  "main": "build/index.js",
+  "main": "build/app.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build/app.js",
     "build": "rm -rf build && tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "prod": "docker-compose up -d --build",
-    "test": "jest --forceExit --coverage --verbose"
+    "prod": "docker-compose -f docker-compose.yml up -d",
+    "dev": "cp .env.dev .env && docker-compose -f docker-compose.dev.yml up -d",
+    "test": "NODE_ENV=test && jest --forceExit --coverage --verbose"
   },
   "dependencies": {
     "tslint": "^5.12.1",

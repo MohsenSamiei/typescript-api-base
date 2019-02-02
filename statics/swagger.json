@@ -1,0 +1,33 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "T.N.I.",
+    "description": "Typescript Node.JS Express Infrastructure",
+    "version": "1.0"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/healthcheck/v1": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/mocklist/v1": {
+      "get": {
+        "tags": [
+          "mock"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  }
+}

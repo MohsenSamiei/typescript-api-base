@@ -2,6 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import Container from "typedi";
 import bodyParser from "body-parser";
+import swaggerui from "swagger-ui-express";
 import ErrorHandler from "./commons/errorhandler";
 import { Application } from "express";
 import { events, emitter } from "./events";
@@ -26,6 +27,12 @@ useExpressServer(app, {
         MockListController
     ]
 });
+
+if (!envconfig.is_production) {
+    // tslint:disable-next-line:no-var-requires
+    const swaggerdocument = require("../statics/swagger.json");
+    app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerdocument));
+}
 
 if (!envconfig.is_test) {
     try {

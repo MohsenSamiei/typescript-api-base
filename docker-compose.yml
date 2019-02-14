@@ -7,9 +7,5 @@ services:
     environment: 
       - NODE_ENV=production      
       - APP_PORT=3000
-    networks: 
-      - backend
     ports:
       - "3000:3000"
-networks: 
-  backend:

@@ -23,8 +23,8 @@
     "start": "node build/app.js",
     "build": "rm -rf build && tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "prod": "docker-compose -f docker-compose.yml up -d",
-    "dev": "cp .env.dev .env && docker-compose -f docker-compose.dev.yml up -d",
+    "prod": "docker-compose -f docker-compose.yml up -d --build",
+    "dev": "cp .env.dev .env && docker-compose -f docker-compose.dev.yml up -d --build",
     "test": "NODE_ENV=test && jest --forceExit --coverage --verbose"
   },
   "dependencies": {

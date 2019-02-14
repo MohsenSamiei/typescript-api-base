@@ -1,6 +1,6 @@
 import request from "supertest";
 import app from "../source/app";
-import { ServiceResultStatus } from "../source/commons/ServiceResult";
+import { ServiceResultStatus } from "../source/commons/serviceresult";
 
 describe("GET /api/mocklist/v1", () => {
     it("Should return status code 0 Success", async () => {

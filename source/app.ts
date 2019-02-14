@@ -4,7 +4,7 @@ import Container from "typedi";
 import bodyParser from "body-parser";
 import swaggerui from "swagger-ui-express";
 import ErrorHandler from "./commons/errorhandler";
-import { Application } from "express";
+import { Application, Request, Response } from "express";
 import { events, emitter } from "./events";
 import { appconfig, envconfig } from "./commons/configs";
 import { useExpressServer, useContainer } from "routing-controllers";
@@ -26,6 +26,10 @@ useExpressServer(app, {
         HealthCheckController,
         MockListController
     ]
+});
+
+app.get("/", (request: Request, response: Response) => {
+    response.send("Welcome!!");
 });
 
 if (!envconfig.is_production) {

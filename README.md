@@ -1,4 +1,4 @@
-# Typescript Node.JS Express Infrastructure
+# Typescript api base infrastructure
 
 ## Preparing the development environment
 ```sh
